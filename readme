@@ -1,0 +1,24 @@
+NFS Installation:    
+    1. NFS Sever setup!
+    2  sudo apt install nfs-kernel-server
+    3  sudo mkdir -p /mnt/nfs_share/k8s-data
+    4  sudo chown -R nobody:nogroup /mnt/nfs_share/k8s-data
+    5  sudo chmod 777 /mnt/nfs_share/k8s-data
+    6  sudo vim /etc/exports
+    7  sudo exportfs -a
+    8  sudo systemctl restart nfs-kernel-server
+    9  sudo ufw status
+   10  sudo showmount -e localhost
+   11  history
+
+NFS Client on apache linux!
+
+ apk add nfs-utils
+ apk add openrc
+ rc-update add nfs
+ rc-service nfsmount start
+ mkdir -p /mnt/k8
+ mount -t nfs 43.205.144.96:/mnt/nfs_share/k8s-data /mnt/k8s
+ df -h
+
+
